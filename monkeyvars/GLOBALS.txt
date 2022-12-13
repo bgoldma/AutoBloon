@@ -1,0 +1,82 @@
+global title := "BloonsTD6"
+SetTitleMatchMode 2
+WinActivate %title%
+SetMouseDelay 0
+SetKeyDelay, 0 , 50
+SetControlDelay -1
+CoordMode Pixel , Client
+CoordMode Mouse , Client
+
+
+global monkeys := []
+global monkeyList := {}
+global buildOrder := {}
+
+global mapDiffX := { "Beginner": 400
+                   , "Intermediate": 850
+                   , "Advanced": 1100
+                   , "Expert": 1350 }
+global mapDiffY := 1000
+
+global levelDiffX := { "Easy": 650
+                     , "Medium": 1000
+                     , "Hard" : 1350 }
+global levelDiffY := 500
+
+global maps := { "Peninsula": ["Advanced" , 8]
+               , "DarkCastle": ["Expert" , 7]
+               , "LotusIsland": ["Beginner" , 8]
+               , "SpiceIslands": ["Intermediate" , 18] }
+
+global versionLoc := { "Standard": [ 650 , 650] }
+
+for map in maps {
+  monkeyList[map] := {}
+  buildOrder[map] := {}
+  for diff in levelDiffX {
+     monkeylist[map][diff] := {}
+     buildOrder[map][diff] := {}
+  }
+}
+
+global upgradeY := [ 500 , 650 , 800 ]
+global upgradeX := [ 280 , 1500 ]
+
+global activeMonkey := 0
+
+global hotkey := { "hero": "u"
+                 , "dart": "q"
+                 , "boomerang": "w"
+                 , "cannon": "e"
+                 , "tack": "r"
+                 , "ice": "t"
+                 , "glue": "y"
+                 , "sniper": "z"
+                 , "sub": "x"
+                 , "buccaneer": "c"
+                 , "ace": "v"
+                 , "heli": "b"
+                 , "mortar": "n"
+                 , "dartling": "m"
+                 , "wizard": "a"
+                 , "super": "s"
+                 , "ninja": "d"
+                 , "alchemist": "f" 
+                 , "druid": "g"
+                 , "farm": "h"
+                 , "engineer": "l"
+                 , "spike": "j"
+                 , "village": "k" }
+
+global targetMap := ""
+global targetDiff := ""
+global targetLevel := ""
+
+spamOn := 0
+
+global BUILD := 0
+global RROTATE := 4
+global LROTATE := 5
+global SPAM := 6
+global NOSPAM := 7
+

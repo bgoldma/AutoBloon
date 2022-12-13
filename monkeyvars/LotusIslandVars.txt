@@ -1,0 +1,13 @@
+monkeyList["LotusIsland"]["Medium"]["Standard"] := [ ["buccaneer", 1199, 865 ]
+                                               , ["buccaneer", -755, -761 ]
+                                               , ["buccaneer", -1553, -565 ]
+                                               , ["buccaneer", -1127, -985 ]
+                                               , ["buccaneer", -1062, -177 ] ]
+
+
+buildOrder["LotusIsland"]["Medium"]["Standard"] := [ [1,2,2,3,3]
+                                , [2,0,2,2,2,2,3,3]
+                                , [1,2,2]
+                                , [3,0,1,1,2,2,1,1]
+                                , [4,0,2,2,3,3,2,2]
+                                , [5,0,2,2,2,2,1,1] ]

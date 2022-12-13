@@ -1,0 +1,4 @@
+#Include monkeyvars/DarkCastleVars.txt
+#Include monkeyvars/LotusIslandVars.txt
+#Include monkeyvars/PeninsulaVars.txt
+#Include monkeyvars/SpiceIslandsVars.txt
