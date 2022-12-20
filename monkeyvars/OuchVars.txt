@@ -1,0 +1,13 @@
+monkeyList["Ouch"]["Easy"]["Standard"] := [ ["buccaneer" , 913 , 494 ]
+                                       , ["buccaneer" , 762 , 590 ]
+                                       , ["buccaneer" , 748 , 485 ]
+                                       , ["sniper" , 880 , 196 ] ]
+
+
+buildOrder["Ouch"]["Easy"]["Standard"] := [ [1,2,3,2]
+                                , [2,2,3,2]
+                                , [3,2,3,2]
+                                , [1,3,2]
+                                , [2,3,2]
+                                , [3,3,2,2] 
+								, [4,3,1,3,1,3,3] ]

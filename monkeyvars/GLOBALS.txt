@@ -24,9 +24,18 @@ global levelDiffX := { "Easy": 650
 global levelDiffY := 500
 
 global maps := { "Peninsula": ["Advanced" , 8]
-               , "DarkCastle": ["Expert" , 7]
                , "LotusIsland": ["Beginner" , 8]
-               , "SpiceIslands": ["Intermediate" , 18] }
+               , "SpiceIslands": ["Intermediate" , 18] 
+               , "Sanctuary": ["Expert" , 0]
+               , "Ravine": ["Expert" , 1]
+               , "FloodedValley": ["Expert" , 2]
+               , "Infernal": ["Expert" , 3]
+               , "BloodyPuddles": ["Expert" , 4]
+               , "Workshop": ["Expert" , 5]
+               , "Quad": ["Expert" , 6]
+               , "DarkCastle": ["Expert" , 7]
+               , "MuddyPuddles": ["Expert" , 8]
+               , "Ouch": ["Expert" , 9] }
 
 global versionLoc := { "Standard": [ 650 , 650] }
 
