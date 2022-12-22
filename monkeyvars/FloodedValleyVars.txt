@@ -1,5 +1,6 @@
 monkeyList["FloodedValley"]["Easy"]["Standard"] := [ ["buccaneer" , 1005 , 792 ]
                                        , ["buccaneer" , 993 , 205 ]
+<<<<<<< Updated upstream
                                        , ["buccaneer" , 1036 , 931 ] ]
 
 
@@ -9,3 +10,13 @@ buildOrder["FloodedValley"]["Easy"]["Standard"] := [ [3,2,3,2,3,2]
                                 , [3,2]
                                 , [2,2]
                                 , [1,2] ]
+=======
+                                       , ["buccaneer" , -1036 , -931 ] ]
+
+
+buildOrder["FloodedValley"]["Easy"]["Standard"] := [ [3,BUILD,2,3,2,3,2]
+                                , [2,2,3,2,3,2]
+                                , [1,2,3,2,3,2]
+                                , [3,2]
+                                , [2,2] ]
+>>>>>>> Stashed changes

@@ -16,12 +16,20 @@ showVars:
 Return
 
 ^j::
+<<<<<<< Updated upstream
 ;  targetMap := "Ravine"
+=======
+  targetMap := "Ravine"
+>>>>>>> Stashed changes
 ;  targetMap := "Sanctuary"
 ;  targetMap := "MuddyPuddles"
 ;  targetMap := "BloodyPuddles"
 ;  targetMap := "Workshop"
+<<<<<<< Updated upstream
   targetMap := "Ouch"
+=======
+;  targetMap := "Ouch"
+>>>>>>> Stashed changes
 ;  targetMap := "Quad"
 ;  targetMap := "FloodedValley"
 ;  targetMap := "Infernal"
@@ -30,6 +38,7 @@ Return
   targetDiff := "Easy"
 ;  targetDiff := "Hard"
   targetLevel := "Standard"
+;  targetLevel := "Impoppable"
   loop
     doLevel()
   return
@@ -52,7 +61,11 @@ Return
   return
 
 ^o::
+<<<<<<< Updated upstream
   PixelGetColor color , 1170 , 602
+=======
+  PixelGetColor color , 1250 , 700
+>>>>>>> Stashed changes
   msgBox % "color is" color
   return
 
@@ -168,7 +181,18 @@ chooseDifficulty() {
   x := versionLoc[targetLevel][1]
   y := versionLoc[targetLevel][2]
   Click %x% , %y%
-  Sleep 1000  
+  Sleep 1000
+  if ( targetLevel == "Impoppable" ) {
+    loop {
+	  pixelGetColor color , 1250 , 700
+	  if (color == 0xD48C57 )
+	    break
+      Sleep 1000
+	}
+	Sleep 2000
+	Send {Enter}
+	Sleep 2000
+  }
 }
 
 clearLevelUp() {
@@ -186,6 +210,7 @@ clearLevelUp() {
 }
 
 clickActiveMonkey() {
+  name := monkeys[activeMonkey][1]
   x := abs(monkeys[activeMonkey][2])
   y := abs(monkeys[activeMonkey][3])
   MouseMove %x% , %y%
@@ -193,6 +218,12 @@ clickActiveMonkey() {
   loop {
     Click %x% , %y%
     Sleep 500
+<<<<<<< Updated upstream
+=======
+    if (name == "hero") {
+      return
+	}
+>>>>>>> Stashed changes
     PixelGetColor color , 60 , 100
     if (color == 0x6099C1)
       return

@@ -31,13 +31,18 @@ global maps := { "Peninsula": ["Advanced" , 8]
                , "FloodedValley": ["Expert" , 2]
                , "Infernal": ["Expert" , 3]
                , "BloodyPuddles": ["Expert" , 4]
+<<<<<<< Updated upstream
                , "Workshop": ["Expert" , 5]
+=======
+               , "Workshop": ["Expert" , 5 ]
+>>>>>>> Stashed changes
                , "Quad": ["Expert" , 6]
                , "DarkCastle": ["Expert" , 7]
                , "MuddyPuddles": ["Expert" , 8]
                , "Ouch": ["Expert" , 9] }
 
-global versionLoc := { "Standard": [ 650 , 650] }
+global versionLoc := { "Standard": [ 650 , 650 ]
+                     ,  "Impoppable": [ 1300 , 750 ] }
 
 for map in maps {
   monkeyList[map] := {}
