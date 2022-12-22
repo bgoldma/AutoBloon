@@ -16,20 +16,12 @@ showVars:
 Return
 
 ^j::
-<<<<<<< Updated upstream
-;  targetMap := "Ravine"
-=======
   targetMap := "Ravine"
->>>>>>> Stashed changes
 ;  targetMap := "Sanctuary"
 ;  targetMap := "MuddyPuddles"
 ;  targetMap := "BloodyPuddles"
 ;  targetMap := "Workshop"
-<<<<<<< Updated upstream
-  targetMap := "Ouch"
-=======
 ;  targetMap := "Ouch"
->>>>>>> Stashed changes
 ;  targetMap := "Quad"
 ;  targetMap := "FloodedValley"
 ;  targetMap := "Infernal"
@@ -61,11 +53,7 @@ Return
   return
 
 ^o::
-<<<<<<< Updated upstream
-  PixelGetColor color , 1170 , 602
-=======
   PixelGetColor color , 1250 , 700
->>>>>>> Stashed changes
   msgBox % "color is" color
   return
 
@@ -218,12 +206,9 @@ clickActiveMonkey() {
   loop {
     Click %x% , %y%
     Sleep 500
-<<<<<<< Updated upstream
-=======
     if (name == "hero") {
       return
 	}
->>>>>>> Stashed changes
     PixelGetColor color , 60 , 100
     if (color == 0x6099C1)
       return
