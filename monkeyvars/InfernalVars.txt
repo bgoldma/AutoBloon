@@ -1,3 +1,7 @@
+<<<<<<< Updated upstream
+=======
+/*
+>>>>>>> Stashed changes
 monkeyList["Infernal"]["Easy"]["Standard"] := [ ["buccaneer" , 434 , 852 ]
                                        , ["buccaneer" , 1164 , 245 ]
                                        , ["ace" , 836 , 744 ]
@@ -13,3 +17,22 @@ buildOrder["Infernal"]["Easy"]["Standard"] := [ [1,3,2,3]
                                 , [2,2]								
 								, [4,3,3]
                                 , [3,3]	]
+<<<<<<< Updated upstream
+=======
+*/
+
+monkeyList["Infernal"]["Easy"]["Standard"] := [ [ "dart" , 482 , 279 ]
+                                                  , [ "dart" , 1177 , 805 ]
+												  , [ "dart" , 832 , 700 ]
+												  , [ "sub" , 470 , 791 ]
+												  , [ "sub" , 1198 , 266 ]
+												  , [ "sniper" , -1517 , -568 ] ]
+												  
+buildOrder["Infernal"]["Easy"]["Standard"] := [ [2,3,3]
+                                                  , [4,1,1]
+                                                  , [1,3,3]
+												  , [3,3,3]
+												  , [5,1,1,3,3,3]
+												  , [6,BUILD,LROTATE,1,3,3,1]
+												  , [4,3,3,3,3] ]
+>>>>>>> Stashed changes

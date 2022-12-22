@@ -1,3 +1,7 @@
+<<<<<<< Updated upstream
+=======
+/*
+>>>>>>> Stashed changes
 monkeyList["Sanctuary"]["Easy"]["Standard"] := [ ["buccaneer" , 736 , 176 ]
                                        , ["buccaneer" , 931 , 184 ]
 									   , ["ace" , 751 , 956 ] ]
@@ -9,3 +13,22 @@ buildOrder["Sanctuary"]["Easy"]["Standard"] := [ [1,2,3,2]
 								, [3,1,1,3,3,3]
 								, [1,2]
                                 , [2,2] ]
+<<<<<<< Updated upstream
+=======
+*/
+
+monkeyList["Sanctuary"]["Easy"]["Standard"] := [ [ "dart" , 436 , 870 ]
+                                                  , [ "dart" , 1152 , 841 ]
+												  , [ "dart" , 763 , 923 ]
+												  , [ "sub" , 735 , 172 ]
+												  , [ "sniper" , 1300 , 500 ]
+												  , [ "sniper" , -371 , -489 ] ]
+												  
+buildOrder["Sanctuary"]["Easy"]["Standard"] := [ [2,3,3]
+                                                  , [4,1,1]
+                                                  , [1,3,3]
+												  , [3,3,3]
+												  , [4,3,3,3]
+												  , [5,1,1,3,3,3,3]
+												  , [6,BUILD,LROTATE,1,3,3,1] ]
+>>>>>>> Stashed changes
