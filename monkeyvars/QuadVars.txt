@@ -1,7 +1,4 @@
-<<<<<<< Updated upstream
-=======
 /*
->>>>>>> Stashed changes
 monkeyList["Quad"]["Easy"]["Standard"] := [ ["dart" , 880, 258 ]
                                        , ["dart" , 773, 855 ]
                                        , ["boomerang" , 1288, 581 ]
@@ -22,8 +19,6 @@ buildOrder["Quad"]["Easy"]["Standard"] := [ [1,1,1,3,3]
                                 , [4,1,1]
                                 , [5,3,3]
                                 , [6,3,3] ]
-<<<<<<< Updated upstream
-=======
 */
 
 
@@ -44,4 +39,3 @@ buildOrder["Quad"]["Easy"]["Standard"] := [ [5,1,1,3,3]
 										  , [7,BUILD,3,2,2,2,3]
 										  , [5,3]
 										  , [6,3] ]
->>>>>>> Stashed changes

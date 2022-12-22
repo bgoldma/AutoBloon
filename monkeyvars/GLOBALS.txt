@@ -31,11 +31,7 @@ global maps := { "Peninsula": ["Advanced" , 8]
                , "FloodedValley": ["Expert" , 2]
                , "Infernal": ["Expert" , 3]
                , "BloodyPuddles": ["Expert" , 4]
-<<<<<<< Updated upstream
-               , "Workshop": ["Expert" , 5]
-=======
                , "Workshop": ["Expert" , 5 ]
->>>>>>> Stashed changes
                , "Quad": ["Expert" , 6]
                , "DarkCastle": ["Expert" , 7]
                , "MuddyPuddles": ["Expert" , 8]
