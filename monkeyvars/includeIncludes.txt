@@ -1,4 +1,13 @@
+#Include monkeyvars/BloodyPuddlesVars.txt
 #Include monkeyvars/DarkCastleVars.txt
+#Include monkeyvars/FloodedValleyVars.txt
+#Include monkeyvars/InfernalVars.txt
 #Include monkeyvars/LotusIslandVars.txt
+#Include monkeyvars/MuddyPuddlesVars.txt
+#Include monkeyvars/OuchVars.txt
 #Include monkeyvars/PeninsulaVars.txt
+#Include monkeyvars/QuadVars.txt
+#Include monkeyvars/RavineVars.txt
+#Include monkeyvars/SanctuaryVars.txt
 #Include monkeyvars/SpiceIslandsVars.txt
+#Include monkeyvars/WorkshopVars.txt

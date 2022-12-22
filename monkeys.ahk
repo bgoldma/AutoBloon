@@ -16,9 +16,19 @@ showVars:
 Return
 
 ^j::
-  targetMap := "DarkCastle"
+;  targetMap := "Ravine"
+;  targetMap := "Sanctuary"
+;  targetMap := "MuddyPuddles"
+;  targetMap := "BloodyPuddles"
+;  targetMap := "Workshop"
+  targetMap := "Ouch"
+;  targetMap := "Quad"
+;  targetMap := "FloodedValley"
+;  targetMap := "Infernal"
+;  targetMap := "DarkCastle"
 ;  targetMap := "SpiceIslands"
   targetDiff := "Easy"
+;  targetDiff := "Hard"
   targetLevel := "Standard"
   loop
     doLevel()
@@ -33,8 +43,17 @@ Return
   return
 
 ^p::
-  PixelGetColor color , 870 , 670
-  msgBox % color "..."
+  targetDiff := "Easy"
+  targetLevel := "Standard"
+  loop {
+    findBonus()
+    playLevel()
+  }
+  return
+
+^o::
+  PixelGetColor color , 1170 , 602
+  msgBox % "color is" color
   return
 
 ^u::
@@ -52,30 +71,66 @@ rotateTargeting(5)
 ;  clearLevelUp()
   return
 
-pickLevel() {
+findBonus()
+{
+  clickPlay()
+  x := mapDiffX["Expert"]
+  Click %x%, %mapDiffY%
+  Sleep 1000
+  mapCount := 0
+  loop {
+    bonusX := 744 + 423 * Mod(mapCount, 3)
+	row := mapCount // 3
+    bonusY := 287 + Mod(row, 2) * 319
+	PixelGetColor color , %bonusX% , %bonusY%
+	color &= 0xF0F0F0
+	if (color == 0xF0F0F0)
+	  break
+	Sleep 100
+	mapCount++
+	if (mapCount == 6) {
+	  Click 1650 , 430
+	  Sleep 1000
+	}
+  }
+  for mName, mData in maps {
+    if ((mData[1] == "Expert") and (mData[2] == mapCount)) {
+	  targetMap := mName
+	  break
+	}
+  }
+  Sleep 1000
+  bonusX -= 100
+  Click %bonusX% , %bonusY%
+  chooseDifficulty()
+}
 
+pickLevel() {
   list := ""
   for mapName in maps {
     list .= mapName . "|"
   }
   Gui Add, DropDownList, vtargetMap Choose1, %list%
   Gui Show
-  
 }
 
-doLevel() {
+enterGame() {
   clickPlay()
   chooseMap()
   chooseDifficulty()
-; FIX ME
-Sleep 6000
-  monkeys := monkeyList[targetMap][targetDiff][targetLevel] 
+}
 
+playLevel() {
+  monkeys := monkeyList[targetMap][targetDiff][targetLevel]
   placeInitialMonkeys(monkeys)
   startGame()
-;  buildMonkeys( buildOrder["LotusIsland"]["Medium"]["Standard"] )
   buildMonkeys( buildOrder[targetMap][targetDiff][targetLevel] )
   finishUp()
+}
+
+doLevel() {
+  enterGame()
+  playLevel()
 }
 
 clickPlay() {
@@ -106,6 +161,7 @@ chooseMap() {
 }
 
 chooseDifficulty() {
+  Sleep 1000
   x := levelDiffX[targetDiff]
   Click %x% , %levelDiffY%
   Sleep 1000
@@ -134,8 +190,17 @@ clickActiveMonkey() {
   y := abs(monkeys[activeMonkey][3])
   MouseMove %x% , %y%
   Sleep 200
-  Click %x% , %y%
-  Sleep 1000
+  loop {
+    Click %x% , %y%
+    Sleep 500
+    PixelGetColor color , 60 , 100
+    if (color == 0x6099C1)
+      return
+    PixelGetColor color , 1600 , 100
+    if (color == 0x6098C1)
+      return
+    Sleep 500
+  }
 }
 
 build(key) {
@@ -143,7 +208,7 @@ build(key) {
     MouseMove 500,500
     Sleep 500
     Send %key% 
-    Sleep 1000
+    Sleep 500
     PixelGetColor color, 1600 , 100
     if (color == 0x0079FF)
       break
@@ -152,8 +217,11 @@ build(key) {
       useAbilities()
     }
   }
-  Sleep 1000
-  clickActiveMonkey()
+  while (color == 0x0079FF) {
+    Sleep 500
+    clickActiveMonkey()
+	PixelGetColor color, 1600 , 100
+  }
 }
 
 placeInitialMonkeys(init) {
@@ -178,8 +246,7 @@ startGame() {
 useAbilities()
 {
 ;  Send {1} {2} {3} {4}
-  Send {2}
-  Sleep 500
+;  Sleep 500
 }
 
 rotateTargeting(direction) {
@@ -217,14 +284,15 @@ upgrade(u) {
 
 buildMonkeys(toBuild) {
   for i , a in toBuild {
+    Click 1600 , 1050
+	Sleep 300
     activeMonkey := a[1]
-    clickActiveMonkey()
+	if ( a[2] != BUILD )
+      clickActiveMonkey()
     for j, action in a {
       if (j == 1)
         continue
-;msgBox % action "and " BUILD "..." BUILDA
       if (action == BUILD ) {
-;`	  msgBox Building
         key := hotkey[monkeys[activeMonkey][1]]
         build(key)
         clickActiveMonkey()
@@ -236,12 +304,10 @@ buildMonkeys(toBuild) {
         upgrade(action)
       }
     }
-    clickActiveMonkey()
   }
 }
 
 clearTotems() {
-
   Click 1000, 700 ; collect
   Sleep 2000
   x := 650
@@ -260,14 +326,9 @@ clearTotems() {
   Sleep 2000
   Click 80 , 50 ; home
   Sleep 2000
-/*
-  Click 500 , 1000 ; just in case
-  Sleep 1000
-*/
 }
 
 finishUp() {
-;  loop {
     loop {
       PixelGetColor color , 900 , 910
       color &= 0xFFE0C0
@@ -286,18 +347,8 @@ finishUp() {
     Sleep 2000
     Click 700 , 860
     Sleep 6000
-
     PixelGetColor color , 870 , 670
     color &= 0xF0F0F0
     if (color == 0x00E060)
       clearTotems()
- 
- /*   
-    PixelGetColor color , 1800 , 1000
-    color &= 0xF0F0F0
-    if ( color == 0xB0E060 )
-	
-      break
- }
-*/
 }

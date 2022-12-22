@@ -1,0 +1,11 @@
+monkeyList["Workshop"]["Easy"]["Standard"] := [ ["dart" , 637 , 501 ]
+                                       , ["ninja" , 1019 , 500 ]
+									   , ["engineer" , 1464 , 630 ]
+									   , ["spike" , 1546 , 635 ]
+									   , ["cannon" , -154 , -629 ] ]
+									  
+buildOrder["Workshop"]["Easy"]["Standard"] := [ [1,1,1,2,2,2]
+                                , [2,1,1,1,3,3]
+								, [5,BUILD,3,3,1,1,3,3]
+                                , [3,1,1,4,4,4,4]
+								, [4,2,2,3,3,3,3]]
