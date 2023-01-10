@@ -16,7 +16,7 @@ showVars:
 Return
 
 ^j::
-  targetMap := "Ravine"
+;  targetMap := "Ravine"
 ;  targetMap := "Sanctuary"
 ;  targetMap := "MuddyPuddles"
 ;  targetMap := "BloodyPuddles"
@@ -25,12 +25,12 @@ Return
 ;  targetMap := "Quad"
 ;  targetMap := "FloodedValley"
 ;  targetMap := "Infernal"
-;  targetMap := "DarkCastle"
+  targetMap := "DarkCastle"
 ;  targetMap := "SpiceIslands"
-  targetDiff := "Easy"
-;  targetDiff := "Hard"
-  targetLevel := "Standard"
-;  targetLevel := "Impoppable"
+;  targetDiff := "Easy"
+  targetDiff := "Hard"
+;  targetLevel := "Standard"
+  targetLevel := "Impoppable"
   loop
     doLevel()
   return
@@ -53,8 +53,12 @@ Return
   return
 
 ^o::
-  PixelGetColor color , 1250 , 700
+  PixelGetColor color , 1890 , 140
   msgBox % "color is" color
+Sleep 1000
+  PixelGetColor color , 1640, 150
+  msgBox % "color is" color
+Sleep 1000
   return
 
 ^u::
@@ -63,8 +67,8 @@ Return
   return
 
 ^f::
-  clearTotems()
-;  finishUp()
+;  clearTotems()
+  finishUp()
   return
 
 ^g::
@@ -209,11 +213,11 @@ clickActiveMonkey() {
     if (name == "hero") {
       return
 	}
-    PixelGetColor color , 60 , 100
+    PixelGetColor color , 30 , 150
     if (color == 0x6099C1)
       return
-    PixelGetColor color , 1600 , 100
-    if (color == 0x6098C1)
+    PixelGetColor color , 1640 , 150
+    if (color == 0x6099C1)
       return
     Sleep 500
   }
@@ -228,10 +232,11 @@ build(key) {
     PixelGetColor color, 1600 , 100
     if (color == 0x0079FF)
       break
-    if ((Mod(A_Index , 10) == 0) or spamOn) {
+;    if ((Mod(A_Index , 10) == 0) or spamOn) {
 ;      clearLevelUp()
-      useAbilities()
-    }
+;      useAbilities()
+;    }
+    cleanNotice()
   }
   while (color == 0x0079FF) {
     Sleep 500
@@ -288,10 +293,11 @@ upgrade(u) {
     if (color == 0x00DF5F)
       break
     Sleep 500
-    if ((Mod(A_Index , 10) == 0) or spamOn) {
+;    if ((Mod(A_Index , 10) == 0) or spamOn) {
 ;      clearLevelUp()
-      UseAbilities()
-    }
+;      UseAbilities()
+;    }
+    cleanNotice()
   }
   Sleep 500
   Click %x% , %y%
@@ -326,11 +332,13 @@ buildMonkeys(toBuild) {
 clearTotems() {
   Click 1000, 700 ; collect
   Sleep 2000
-  x := 650
+;  x := 650
+  x := 736
   y := 550
   loop {
     Click %x% , %y%
-    x += 150
+;    x += 150
+    x += 221
     Sleep 2000
     Click %x% , %y%
     Sleep 1000
@@ -344,16 +352,26 @@ clearTotems() {
   Sleep 2000
 }
 
+cleanNotice() {
+  PixelGetColor color , 1890 , 140
+  if (color != 0x5D96BF) {
+    Click 1890 , 140
+	Sleep 2000
+  }
+}
+
 finishUp() {
     loop {
+	  cleanNotice()
       PixelGetColor color , 900 , 910
       color &= 0xFFE0C0
       if (color == 0x00E040)
         break
-      if ((Mod(A_Index , 10) == 0) or spamOn) {
-;        clearLevelUp()
-        useAbilities()
-      }
+;      if ((Mod(A_Index , 10) == 0) or spamOn) {
+;	    cleanNotice()
+;        useAbilities()
+;      }
+	  cleanNotice()
       Sleep 2000
     }
     Sleep 2000
