@@ -87,6 +87,9 @@ spamOn := 0
 global BUILD := 0
 global RROTATE := 4
 global LROTATE := 5
-global SPAM := 6
-global NOSPAM := 7
+global SELL := 6
+global SPAM := 7
+global NOSPAM := 8
+global SLEEP := 9
+
 
